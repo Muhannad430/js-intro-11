@@ -106,3 +106,36 @@ function frontBack(str) {
 function front3(str) {
     return str.slice(0, 3) + str.slice(0, 3) + str.slice(0, 3)
 }
+
+function startHi(str) {
+    return str.startsWith('hi');
+}
+
+function icyHot(number1, number2) {
+    if((number1 < 0 && number2 > 100) || ( number1 > 100 && number2 < 0)) {
+        return 'true'
+    }
+    else {
+        return false;
+}
+}
+
+function in1020(num1, num2) {
+    return (num1 >= 10 && num2 <= 20) || (num1 >= 10 && num2 <= 20)
+}
+/*
+function hasTeen(num1, num2, num3) {
+    return (num1 === 10 || num2 === 10 || num3 === 10)
+}
+
+function loneTeen(num1, num2) {
+    return ((num1 >= 13 && num2 <= 19) || (num1 <= 19 && num2 >= 13) || num1 !== num2) 
+}
+*/
+function loneTeen(a, b) {
+    const isTeen = num => (num) >= 13 && num <= 19;
+    
+    return isTeen(a) !== isTeen(b);
+  }
+
+  
