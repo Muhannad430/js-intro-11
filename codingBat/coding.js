@@ -211,11 +211,15 @@ function stringE(str) {
     }
     return count >= 1 && count <= 3;
 }
+
 //
+
 function lastDigit(a, b) {
     return a % 10 === b % 10
 }
+
 //
+
 function endUp(str) {
     if (str.length <= 3) {
         return str.toUpperCase();
