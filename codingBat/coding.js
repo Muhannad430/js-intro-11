@@ -231,4 +231,120 @@ function endUp(str) {
     return front + back.toUpperCase();
 
 }
-// 
+
+//
+
+function everyNth(str, num) {
+    let result = '';
+    for (let i = 0; i < str.length; i += num) {
+        result += str[i];
+    }
+    return result;
+}
+
+function stringTimes(str, num) {
+    return str.repeat(num);
+}
+
+function frontTimes(str, num) {
+    if (str.length > 3) {
+        return str.slice(0, 3).repeat(num)
+    }
+    else {
+        return str.repeat(num)
+    }
+}
+
+let str = "xxx"
+let count = 0;
+
+for (let i = 0; i < str.length; i++) {
+    if (str[i] === 'x') {
+        count++
+    }
+}
+
+function doubleX(str) {
+    const index = str.indexOf('x');
+    return index !== -1 && str[index + 1] === 'x';
+}
+
+function stringBits(str) {
+    let result = '';
+    for (let i = 0; i < str.length; i += 2) {
+        result += str[i];
+    }
+    return result;
+}
+
+function stringSplosion(str) {
+    let result = '';
+    for (let i = 0; i < str.length; i++) {
+        result += str.slice(0, i + 1);
+    }
+    return result;
+}
+
+function arrayCount9(arr) {
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === 9) {
+            count++;
+        }
+    }
+    return count;
+}
+
+function arrayFront9(arr) {
+    for (let i = 0; i < 4; i++) {
+        if (arr[i] === 9) {
+            return true
+        }
+    }
+    return false
+}
+
+function array123(arr) {
+    for (let i = 0; i < (arr.length - 2); i++) {
+        if (arr[i] === 1 && arr[i + 1] === 2 && arr[i + 2] === 3) {
+            return true
+        }
+    }
+    return false
+}
+
+function stringMatch(a, b) {
+    let count = 0;
+    for (let i = 0; i < a.length - 1; i++) {
+        if (a[i] === b[i] && a[i + 1] === b[i + 1]) {
+            count++
+        }
+    }
+    return count;
+}
+
+function stringX(str) {
+    if (str.length <= 1) return str;
+    let start = str[0] === 'x' ? 'x' : '';
+    let end = str[str.length - 1] === 'x' ? 'x' : '';
+
+    let middle = str.slice(1, str.length - 1).replace(/x/g, '');
+
+    return start + middle + end;
+}
+
+function altPairs(str) {
+    let string = '';
+    
+    for (let i = 0; i < str.length; i += 4) {
+        string += str[i]
+        if (i + 1 < str.length) {
+            string += str[i + 1]
+        }
+    }
+    return string
+}
+console.log(altPairs("kitten"));
+console.log(altPairs("Chocolate"));
+console.log(altPairs("CodingHorror"));
+
