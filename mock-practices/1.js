@@ -683,17 +683,3 @@ function startsVowel(word) {
 console.log(startsVowel("Tech"));
 console.log(startsVowel("Apple"));
 console.log(startsVowel("abc"));
-
-
-
-
-const shorter = (word1, word2)  => {
-    if(word1.length < word2.length) 
-      return word1
-    else {
-      return word2
-    }
-  }
-  console.log(shorter("Tech", "Global"));
-  console.log(shorter("Hello", "Hi"));
-  console.log(shorter("Hello", "World"));
