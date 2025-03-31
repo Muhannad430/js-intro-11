@@ -179,9 +179,11 @@ countPos([-45, 0, 0, 34, 5, 67]) countPos([-23, -4, 0, 2, 5, 90, 123]) countPos(
 -> 0
 */
 
-function countPos(arr){
+function countPos(arr) {
     return arr.filter(num => num > 0).length;
 }
+
+console.log(countPos([-45, 0, 0, 34, 5, 67]));
 
 /*
 Find Even Numbers
@@ -211,3 +213,164 @@ function getEvens(num1, num2) {
     return evens;
 }
 console.log(getEvens(2, 7));
+
+/*
+Find Numbers Divisible By 5
+Write a function named as getMultipleOf5() which takes 2 number arguments and returns all the numbers
+divisible by 5 as an array stored from first found match to last found match when invoked.
+NOTE: Make your code dynamic that works for any numbers and return empty array if there are no
+numbers divisible by 5 in the range of given 2 numbers.
+Assume you will not be given negative numbers.
+Examples:
+getMultipleOf5(3, 17) -> [ 5, 10, 15]
+getMultipleOf5(23, 5) -> [ 20, 15, 10, 5 ]
+getMultipleOf5(5, 5) -> [ 5 ]
+getMultipleOf5(2, 4) -> [ ]
+*/
+
+function getMultipleOf5(num1, num2) {
+    let start = Math.min(num1, num2);
+    let end = Math.max(num1, num2);
+    let by5 = [];
+
+    for (let i = start; i <= end; i++) {
+        if (i % 5 === 0) {
+            by5.push(i);
+        }
+    }
+    return by5;
+}
+console.log(getMultipleOf5(3, 17));
+
+/*
+Count Negative Numbers
+Write a function named countNeg() which takes an array of numbers as an argument and returns how
+many elements are negative when invoked.
+Examples:
+countNeg([-45, 0, 0, 34, 5, 67]) countNeg([-23, -4, 0, 2, 5, 90, 123]) countNeg([0, -1, -2, -3]) -> 1
+-> 2
+-> 3
+*/
+
+function countNeg(array) {
+    return array.filter(num => num < 0).length;
+}
+
+console.log(countNeg([-45, 0, 0, 34, 5, 67]));
+console.log(countNeg([-23, -4, 0, 2, 5, 90, 123]));
+
+/*
+Count A
+Write a function named countA() which takes a string argument and returns how many A or a there are
+in the given string when invoked.
+NOTE: Ignore case sensitivity.
+Examples:
+countA("TechGlobal is a QA bootcamp") countA("QA stands for Quality Assurance") -> 4
+-> 5
+countA("Cypress") -> 0
+*/
+
+function countA(str) {
+    let count = 0;
+    const lowCase = str.toLowerCase();
+
+    for (let i = 0; i < lowCase.length; i++) {
+        if (lowCase[i] === 'a') {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+console.log(countA("TechGlobal is a QA bootcamp"));
+
+/*
+Count Words
+Write a function named countWords() which takes a string argument and returns the total count of
+words in the given string when invoked.
+NOTE: Be careful about the extra whitespaces before and after the string.
+Examples:
+countWords(" Javascript is fun ") countWords("Cypress is an UI automation tool. ") -> 6
+countWords("1 2 3 4") -> 3
+-> 4
+*/
+
+function countWords(str) {
+    let words = str.trim().split(' ');
+
+    return words.length === 1 && words[0] === "" ? 0 : words.length;
+}
+
+console.log(countWords(" Javascript is fun "));
+console.log(countWords("Cypress is an UI automation tool. "));
+
+/*
+Factorial
+Write a function named as factorial() which takes a number as an argument and returns the factorial of
+the number when invoked.
+NOTE: Mathematically, the factorial of a non-negative integer n is defined as:
+n! = n × (n-1) × (n-2) × ... × 2 × 1
+Assume you will not be given a negative number.
+Examples:
+factorial(5) -> 120
+factorial(4) -> 24
+factorial(0) -> 1
+factorial(1) -> 1
+*/
+
+const factorial = num => {
+    let product = 1;
+    for (let i = 1; i <= num; i++) {
+        product *= i;
+    }
+    return product;
+}
+
+console.log(factorial(5));
+console.log(factorial(4));
+
+/*
+Count 3 or Less
+Write a function named as count3OrLess() which takes a string word as an argument and returns the
+count of the words that has 3 characters or less when invoked.
+Examples:
+count3OrLess("Hello") -> 0
+count3OrLess("Hi John") -> 1
+count3OrLess("JavaScript is fun") -> 2
+count3OrLess("My name is John Doe") -> 3
+count3OrLess("") -> 0
+*/
+
+function count3OrLess(str) {
+    let words = str.trim().split(' ');
+    let count = 0;
+
+    for (let word of words) {
+        if (word.length <= 3) {
+            count++;
+        }
+    }
+    return count;
+}
+
+console.log(count3OrLess("JavaScript is fun"));
+console.log(count3OrLess("My name is John Doe"));
+console.log(count3OrLess("Hi John"));
+
+/*
+Remove Extra Spaces
+Write a function named as removeExtraSpaces() which takes a string word as an argument and
+returns the string back with all extra spaces removed when invoked.
+Examples:
+removeExtraSpaces("Hello") -> "Hello"
+removeExtraSpaces(" Hello World ") -> "Hello World"
+removeExtraSpaces(" JavaScript is fun") -> "JavaScript is fun”
+removeExtraSpaces("") -> ""
+*/
+
+function removeExtraSpaces(str) {
+    return str.replaceAll(/\s+/g, ' ')
+}
+
+console.log(removeExtraSpaces("   Hello    World     "));
