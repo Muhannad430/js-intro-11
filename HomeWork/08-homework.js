@@ -121,9 +121,9 @@ removeStringSpecialsDigits("Cypress")  -> "Cypress"
 removeStringSpecialsDigits("Automation123#$%")  -> "Automation"
 */
 
-
-
-
+function removeStringSpecialsDigits(str) {
+    let newStr = str.split('');
+}
 
 
 console.log('\n--------TASK07--------\n');
@@ -140,7 +140,20 @@ removeArraySpecialsDigits(["Automation", "123#$%tool"])  -> ["Automation",
 "tool"]
 */
 
+function removeArraySpecialsDigits(arr) {
+    let newArr = [];
+    for (const str of arr) {
+        let cleanword = '';
 
+        for(const char of str){
+            if(char.includes(/a-zA-z/.test(str))){
+                
+            }
+        }
+       
+    }
+}
+removeArraySpecialsDigits(["123Javascript", "#$%is", "fun"])
 
 
 console.log('\n--------TASK08--------\n');
@@ -160,8 +173,8 @@ function getCommons(arr1, arr2) {
     return arr1.filter(word => arr2.includes(word));
 }
 
-console.log(getCommons( ["Javascript", "is", "fun"], ["abc", "xyz", "123"] ) );
-console.log(getCommons( ["Javascript", "C#", "C#"], ["Python", "C#", "C++"] ) );
+console.log(getCommons(["Javascript", "is", "fun"], ["abc", "xyz", "123"]));
+console.log(getCommons(["Javascript", "C#", "C#"], ["Python", "C#", "C++"]));
 
 console.log('\n--------TASK09--------\n');
 /*
@@ -177,5 +190,13 @@ noXInVariables(["x", 123, "#$%"])  -> [123, "#$%"]
 noXInVariables(["xyXyxy", "Xx", "ABC"])  -> ["yyy", "ABC"]
 */
 
+function noXInVariables(arr) {
+    let newArr = [];
 
+    for (const str of arr) {
+        newArr.push(str.replace(/x/gi, ''));
+    }
+    return newArr;
+}
 
+console.log(noXInVariables(["xyXyxy", "Xx", "ABC"]));

@@ -374,3 +374,182 @@ function removeExtraSpaces(str) {
 }
 
 console.log(removeExtraSpaces("   Hello    World     "));
+
+
+/*
+Remove Duplicates
+Write a function named removeDuplicates() which takes an array argument and returns a new array
+with all the duplicates removed.
+Examples:
+removeDuplicates([10, 20, 35, 20, 35, 60, 70, 60]) removeDuplicates([1, 2, 5, 2, 3]) removeDuplicates([0, -1, -2, -2, -1]) removeDuplicates(["abc", "xyz", "123", "ab", "abc", "ABC"]) -> ["abc", "xyz", "123", "ab", "ABC"]
+removeDuplicates(["1", "2", "3", "2", "3"]) -> [10, 20, 35, 60, 70]
+-> [1, 2, 5, 3]
+-> [0, -1, -2]
+-> ["1", "2", "3"]
+*/
+
+function removeDuplicates(arr) {
+    let newArr = [];
+    for (const target of arr) {
+        if (newArr.includes(target)) continue;
+        else newArr.push(target);
+    }
+    return newArr;
+}
+
+console.log(removeDuplicates([10, 20, 35, 20, 35, 60, 70, 60]));
+console.log(removeDuplicates([1, 2, 5, 2, 3]));
+
+/*
+No Elements Equals 13
+Write a function named no13() which takes an array of numbers as argument and return a new array
+with all 13s replaced with 0s.
+Examples:
+no13([1, 2, 3 ,4]) no13([13, 2, 3]) no13([13, 13, 13 , 13, 13]) no13([]) -> []
+-> [1, 2, 3 ,4]
+-> [0, 2, 3]
+-> [0, 0, 0, 0, 0]
+*/
+
+function no13(arr) {
+    let newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] !== 13) {
+            newArr.push(arr[i])
+        }
+        else {
+            newArr.push(0);
+        }
+    }
+    return newArr;
+}
+
+console.log(no13([13, 2, 3]));
+/*
+function no13(arr) {
+    return arr.map(item => item === 13 ? 0 : item);
+}
+*/
+
+/*
+No Elements Divisible By 3 and 5
+Write a function named no3and5() which takes an array of integer numbers as argument and will return
+a new array with elements replaced by conditions below.
+If element can be divided by 5, replace it with 99
+If element can be divided by 3, replace it with 100
+If element can be divided by both 3 and 5, replace it with 101
+Examples:
+no3and5([7, 4, 11, 23, 17]) no3and5([3, 4, 5, 6]) no3and5([10, 11, 12, 13, 14, 15]) -> [7, 4, 11, 23, 17]
+-> [100, 4, 99, 100]
+-> [99, 11, 100, 13, 14, 101]
+*/
+
+function no3and5(arr) {
+    let newArr = [];
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 3 === 0 && arr[i] % 5 === 0) {
+            newArr.push(101);
+
+        } else if (arr[i] % 5 === 0) {
+            newArr.push(99);
+
+        } else if (arr[i] % 3 === 0) {
+            newArr.push(100);
+
+        } else {
+            newArr.push(arr[i]);
+        }
+    }
+    return newArr;
+}
+
+console.log(no3and5([3, 4, 5, 6]));
+
+/*
+No Elements With A
+Write a function named noA() which takes an array of strings as argument and will return a new array
+with all elements starting with "A" or "a" replaced with "###".
+Examples:
+noA(["javascript", "hello", "123", "xyz"]) -> ["javascript", "hello", "123", "xyz"]
+noA(["apple", "123", "ABC", "javascript"]) -> ["###", "123", "###", "javascript"]
+noA(["apple", "abc", "ABC", "Alex", "A"]) -> ["###", "###", "###", "###", "###"]
+*/
+
+function noA(arr) {
+    let newArr = [];
+    arr.forEach(str => {
+        if (str.toLowerCase().startsWith('a')) {
+            return newArr.push('###')
+        }
+        else newArr.push(str);
+    });
+    return newArr;
+}
+/*
+function noA(arr) {
+    return arr.map(str => str.toLowerCase().includes('a') ? '###' : str);
+}
+*/
+
+console.log(noA(["javascript", "hello", "123", "xyz"]));
+
+/*
+Add Two Arrays
+Write a function named add() which takes two array of numbers as argument and returns a new array
+with sum of given arrays elements.
+NOTE: Be careful about the array sizes as they could be different.
+Examples:
+add([3, 0, 0, 7, 5, 10], [6, 3, 2]) add([10, 3, 6, 3, 2], [6, 8, 3, 0, 0, 7, 5, 10, 34]) add([-5, 6, -3, 11], [5, -6, 3, -11]) -> [9, 3, 2, 7, 5, 10]
+-> [16, 11, 9, 3, 2, 7, 5, 10, 34]
+-> [0, 0, 0, 0]
+*/
+
+function add(arr1, arr2) {
+    let longestArr = Math.max(arr1.length, arr2.length);
+    let newArr = [];
+
+    for (let i = 0; i < longestArr; i++) {
+        let num1 = arr1[i] || 0;
+        let num2 = arr2[i] || 0;
+
+        newArr.push(num1 + num2);
+    }
+    return newArr;
+}
+
+console.log(add([3, 0, 0, 7, 5, 10], [6, 3, 2]));
+
+/*
+FizzBuzz
+Write a function named as fizzBuzz() which takes 2 number arguments and returns a string composed
+with below requirements when invoked.
+
+• You need to find all the numbers within the range of given 2 numbers (both inclusive) and store
+them in a string from smallest to greatest number with a ' | ' separator for each number.
+• You will need to convert numbers divisible by 3 to 'Fizz'
+• You will need to convert numbers divisible by 5 to 'Buzz'
+• You will need to convert numbers divisible by both 3 and 5 to 'FizzBuzz’
+• The rest will stay the same.
+NOTE: Make your code dynamic that works for any numbers.
+Assume you will not be given negative numbers.
+Examples:
+fizzBuzz(13, 18) -> "13 | 14 | FizzBuzz | 16 | 17 | Fizz"
+fizzBuzz(12, 5) -> "Buzz | Fizz | 7 | 8 | Fizz | Buzz | 11 | Fizz"
+fizzBuzz(5, 5) -> "Buzz"
+fizzBuzz(9, 6) -> "Fizz | 7 | 8 | Fizz"
+*/
+
+function fizzBuzz(num1, num2) {
+    let str = '';
+
+    for (let i = Math.min(num1, num2); i < Math.max(num1, num2) + 1; i++) {
+        if (i % 5 === 0 && i % 3 === 0) str += ' FizzBuzz |'
+        else if (i % 5 === 0) str += ' Buzz |'
+        else if (i % 3 === 0) str += ' Fizz |'
+        else str += ` ${i} |`
+    }
+    return str.slice(0, -2);
+}
+
+console.log(fizzBuzz(13, 18));
