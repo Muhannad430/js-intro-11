@@ -553,3 +553,125 @@ function fizzBuzz(num1, num2) {
 }
 
 console.log(fizzBuzz(13, 18));
+
+/*
+Count 3 or Less
+Write a function named as count3OrLess() which takes a string word as an argument and returns the
+count of the words that has 3 characters or less when invoked.
+Examples:
+count3OrLess("Hello") -> 0
+count3OrLess("Hi John") -> 1
+count3OrLess("JavaScript is fun") -> 2
+count3OrLess("My name is John Doe") -> 3
+count3OrLess("") -> 0
+*/
+
+function count3OrLess(str) {
+    let words = str.split(' ');
+    let count = 0;
+
+    for (let i = 0; i < words.length; i++) {
+        if (words[i].length <= 3) {
+            count++;
+        }
+    }
+    return count;
+}
+
+console.log(count3OrLess("Hello"));
+console.log(count3OrLess("Hi John"));
+
+/*
+Middle Number
+Write a function named middleInt() which takes three number arguments and return the middle
+number.
+Examples:
+middleInt(1, 2, 2) -> 2
+middleInt(5, 5, 8) -> 5
+middleInt(5, 3, 5) -> 5
+middleInt(1, 1, 1) -> 1
+middleInt(-1, 25, 10) -> 10
+*/
+
+function middleInt(a, b, c) {
+    return [a, b, c].sort((x, y) => x - y)[1];
+}
+
+console.log(middleInt(1, 2, 2));
+console.log(middleInt(5, 5, 8));
+
+/*
+First Duplicate Element
+Write a function named as firstDuplicate() which takes an array argument and returns the first
+duplicated number in the array when invoked.
+NOTE: Make your code dynamic that works for any array and return -1 if there are no duplicates in the
+array. For two elements to be considered as duplicated, value and data types of the elements must be
+same.
+Examples:
+firstDuplicate([ 3, 7, 10, 0, 3, 10 ])  -> 3 
+firstDuplicate([ 5, 7, 7, 0, 5, 10 ]) -> 5
+firstDuplicate([ 5, '5', 3, 7, 4 ]) -> -1
+firstDuplicate([ 123, 'abc', '123', 3, 'abc' ]) -> 'abc'
+firstDuplicate([ 1, 2, 3]) -> -1
+firstDuplicate([ `'foo', 'abc', '123', 'bar ` ]) -> -1
+*/
+
+function firstDuplicate(arr) {
+    for(let i = 0; i < arr.length; i++){
+        for(let j = i + 1; j < arr.length; j++){
+            if(arr[i] === arr[j]){
+                return arr[i]
+            }
+        }
+    }
+    return -1;
+}
+
+console.log(firstDuplicate([`'foo', 'abc', '123', 'bar `]) );
+console.log(firstDuplicate([ 3, 7, 10, 0, 3, 10 ]));
+console.log(firstDuplicate([ 123, 'abc', '123', 3, 'abc' ]));
+
+/*
+Find All Duplicate Elements
+Write a function named as getDuplicates() which takes an array argument and returns all the duplicated
+elements in the array when invoked.
+NOTE: Make your code dynamic that works for any array and return empty array if there are no
+duplicates in the array. For two elements to be considered as duplicated, value and data types of the
+elements must be same.
+Examples:
+getDuplicates([ 0, -4, -7, 0, 5, 10, 45, -7, 0 ]) getDuplicates([ 1, 2, 5, 0, 7 ]) getDuplicates(['A', 'foo', '12’ , 12, 'bar', 'a', 'a', 'foo' ]) getDuplicates([ 'foo', '12' , 12, 'bar', 'a' ]) -> [ 0, -7 ]
+-> [ ]
+-> [ 'foo', 'a’ ]
+-> [ ]
+*/
+
+function getDuplicates(arr) {
+    
+}
+
+
+
+/*
+Palindrome
+Write a function named as isPalindrome() which takes a string word as an argument and returns true if
+the word is palindrome or returns false otherwise when invoked.
+NOTE: Palindrome: It is a word that is read the same backward as forward
+Examples: kayak, civic, madam
+NOTE: your function should ignore case sensitivity
+Examples:
+isPalindrome("Hello") -> false
+isPalindrome("Kayak") -> true
+isPalindrome("civic") -> true
+isPalindrome("abba") -> true
+isPalindrome("ab a") -> false
+isPalindrome("123454321") -> true
+isPalindrome("A") -> true
+isPalindrome("") -> true
+*/
+
+const isPalindrome = word => word.toLowerCase() === word.toLowerCase().split('').reverse().join('');
+
+console.log(isPalindrome("Hello"));
+console.log(isPalindrome("Kayak"));
+console.log(isPalindrome("civic"));
+console.log(isPalindrome("abba"));

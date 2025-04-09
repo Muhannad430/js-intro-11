@@ -164,7 +164,7 @@ isPalindrome("A")  -> true
 isPalindrome("")  -> true
 */
 
-const isPalindrome = word => word === word.split('').reverse().join('');
+const isPalindrome = word => word.toLowerCase() === word.toLowerCase().split('').reverse().join('');
 
 console.log(isPalindrome("Hello"));
 console.log(isPalindrome("Kayak"));
