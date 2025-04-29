@@ -1,0 +1,28 @@
+Node.js
+JS used to be running only in browsers.
+
+Node.js made JS to be executed in the machines without need of browsers.
+
+When you install Node.js in local, you also get npm/npx
+
+npm: node package manager
+npx: node package executor
+
+
+package = libraries = modules = these are lots of useful methods, prototypes or classes written by someone and shared with the others.
+
+
+npx playwright test
+npx cypress open
+
+
+npm: can be consireded as the Apple Store for packages
+
+npm is used one time to install a dependency
+npx can be used frequently to run npm packages
+
+
+npm install cypress -D
+npm install cypress --save-dev
+
+These flags stores dependencies as dev dependency
