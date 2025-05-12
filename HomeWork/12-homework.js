@@ -55,8 +55,8 @@ decimal2( [4.35623, 8.9742] ) 		-> [ 4.36, 8.97 ]
 
 function decimal2(arr) {
     let newArr = [];
-    for (let num of arr) {
-        newArr.push(Number(num.toFixed(2)));
+    for (let i = 0; i < arr.length; i++) {
+        newArr.push(arr[i].toFixed(2));
     }
     return newArr;
 }
